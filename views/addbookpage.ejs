@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form  action="/bookadded/<%= objectid %> " method="post">
+        <div id="bigdiv" class="flexbox">
+            <h1>Add books</h1>
+            <label for="1">Book Name:</label>
+            <input type="text" placeholder="enter book name" id="1" name="1">
+            <label for="50">Author Name:</label>
+           
+            <input type="text" placeholder="enter author name" id="50" name="50">
+            <!-- <input type="text" placeholder="enter name of the label" id="1" name="1"> -->
+
+
+
+            <input type="hidden" id="counter" name="counter" value=<%= objectid %>  >
+
+        </div>
+        <div class="lastbox">
+            <!-- <div class="addfieldbox"> -->
+                <button type="button" id="add">Add More Book</button>
+            <!-- </div> -->
+            <!-- <div class="submitbtn"> -->
+                <button type="submit">Create List</button>
+            <!-- </div> -->
+        </div>
+        
+    </form>
+    
+</body>
+</html>
+<script>
+    
+        
+        let nameid = 2
+        let  typeid= 2
+    
+        document.getElementById("counter").value=2
+    
+    
+    
+        document.getElementById("add").addEventListener("click",add)
+    
+    
+        function add(){
+            console.log("adding field")
+    
+            var newline=document.createElement("hr")
+            document.getElementById("bigdiv").appendChild(newline);
+    
+    
+           var  div=document.createElement("div")
+           div.setAttribute("class","divclasses");
+    
+           document.getElementById("bigdiv").appendChild(div);
+    
+    
+            var newlabel = document.createElement("Label");
+            newlabel.setAttribute("for",nameid);
+            newlabel.innerHTML = "Book Name:";
+            div.appendChild(newlabel);
+            
+            // document.getElementById("bigdiv").addEventListener("click",clicked(Event))
+    
+            const newinput = document.createElement("input");  
+            newinput.type = "text";  
+            newinput.placeholder="enter name of the label"
+            newinput.setAttribute("name",nameid)
+            div.appendChild(newinput);
+            // id+=1
+            var newlabel2 = document.createElement("Label");
+            newlabel2.setAttribute("for",typeid);
+            newlabel2.innerHTML = "Author Name:";
+            div.appendChild(newlabel2);
+
+
+            const newinput2 = document.createElement("input");  
+            newinput2.type = "text";  
+            newinput2.placeholder="enter name of the author"
+            newinput2.setAttribute("name",typeid)
+            div.appendChild(newinput2);
+    
+    
+            // function clicked(Event){
+            //     let clickedfield = Event.target.getAttribute("id");
+    
+    
+            // }
+    
+    
+    
+    
+    // document.getElementById('select').appendChild(SELECT);
+    
+    
+    
+    
+            // const newinput2 = document.createElement("select");  
+            // newinput2.type = "text";  
+            // newinput2.placeholder="enter data type of label"
+            // // newinput2.setAttribute("option")
+            // newinput2.setAttribute("name",typeid)
+    
+            // var OPT0 = document.createElement('option');
+            // OPT0.setAttribute('value', "");
+            // OPT0.setAttribute('aria-disabled',"true")
+    
+            // var OPT1 = document.createElement('option');
+            // OPT1.setAttribute('value', "text");
+    
+            // var OPT2 = document.createElement('option');
+            // OPT2.setAttribute('value', "date");
+            // var OPT3 = document.createElement('option');
+            // OPT3.setAttribute('value', "number");
+            // // OPT2.setAttribute('selected', 'selected');
+            // // also you can set use .selected as a property 
+            // // OPT2.selected = true;
+    
+            // OPT0.appendChild( document.createTextNode( 'choose the label type' ) );
+            // OPT1.appendChild( document.createTextNode( 'text' ) );
+            // OPT2.appendChild( document.createTextNode( 'date' ) );
+            // OPT3.appendChild( document.createTextNode( 'number' ) );
+    
+            // newinput2.appendChild(OPT0);
+            // newinput2.appendChild(OPT1);
+            // newinput2.appendChild(OPT2);
+            // newinput2.appendChild(OPT3);
+    
+    
+            
+            // div.appendChild(newinput2);
+            nameid+=1
+            typeid+=1
+    
+            document.getElementById("counter").value=parseInt(nameid)
+            
+        }
+    
+    
+
+    
+</script>
+<style>
+    
+    h1{
+        display: flex;
+        justify-content: center;
+        font-family: Oswald;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        background-color: gray;
+    }
+    .flexbox{
+        font-family: Lora;
+        display: flex;
+        width: 600px;
+        flex-direction: column;
+        padding: 20px 20px 20px 20px;
+        margin-bottom: 10px;
+        background-color: lightgray;
+    }
+    /* .addfieldbox{
+        display: flex;
+        justify-content: center;
+    } */
+
+    .lastbox{
+        display: flex;
+        justify-content: space-around;
+    }
+    .divclasses{
+        display: flex;
+        width: 600px;
+        flex-direction: column;
+        padding: 10px 10px 10px 10px;
+        /* background-color: lightgray; */
+
+    }
+    hr{
+        border-top: 2px solid rgb(99, 142, 161);
+        width: 100%; 
+        margin: auto;
+         margin-top:15px; 
+         margin-bottom: 0px;
+        
+    }
+
+
+</style>
+
+
